@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: online-shop-service
 spec:
-  type: NodePort        # optional, add if you want external access via NodePort
+  type: NodePort
   selector:
     app: online-shop
   ports:
-  - port: 3000
-    targetPort: 3000
-    nodePort: 30080     # optional: set a fixed NodePort if needed
+  - port: 3000        # ClusterIP port
+    targetPort: 3000  # Container port
+    nodePort: 30080   # NodePort to access externally
 
